@@ -9,7 +9,7 @@ import Posts from "../Posts/Posts"
 export default function Dashboard() {
 
   const [selected, setSelected] = useState(0);
-  const [author, setAuthor] = useState(null);
+  const [_author, setAuthor] = useState(null);
   const [detail, setDetail] = useState([{}]);
 
   let [postState, setPostState] = useState(
@@ -27,6 +27,7 @@ export default function Dashboard() {
 
   const changeAuthor = (myAuth) => {
     postState[0].author = myAuth
+    setPostState(postState)
   }
 
   const setDetailHandler = (id) => {
@@ -36,7 +37,6 @@ export default function Dashboard() {
 
 
   return (
-
     <div>
       <div className="Post">
         <Posts
@@ -51,9 +51,7 @@ export default function Dashboard() {
       <div className="detailContainer">
         <PostDetail data={detail} />
       </div>
-
-
     </div>
-
   )
+
 }

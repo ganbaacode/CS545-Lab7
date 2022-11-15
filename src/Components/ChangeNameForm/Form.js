@@ -8,6 +8,7 @@ export default function Form(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.setAuthor(name);
+        console.log(name)
     }
 
 
